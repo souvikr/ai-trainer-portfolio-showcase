@@ -1,4 +1,3 @@
-# .github/workflows/deploy.yml in your ai-trainer-portfolio-showcase repo
 name: Build & Deploy to Pages
 
 on:
@@ -9,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -27,7 +27,8 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Use your PAT so it can push to an external repo
+          personal_token: ${{ secrets.PAGES_PAT }}
           external_repository: souvikr/souvikr.github.io
           publish_branch: main
           publish_dir: ./build
