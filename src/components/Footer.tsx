@@ -123,13 +123,13 @@ const Footer = () => {
             © {currentYear} Souvik Roy. All rights reserved.
           </p>
           <p className="text-gray-500 dark:text-gray-500 text-sm mt-2 md:mt-0">
-            <a href="#" className="hover:text-primary dark:hover:text-white transition-colors">
+            <Link to="/privacy" className="hover:text-primary dark:hover:text-white transition-colors">
               Privacy Policy
-            </a>
+            </Link>
             {" | "}
-            <a href="#" className="hover:text-primary dark:hover:text-white transition-colors">
+            <Link to="/terms" className="hover:text-primary dark:hover:text-white transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </p>
         </div>
       </div>
