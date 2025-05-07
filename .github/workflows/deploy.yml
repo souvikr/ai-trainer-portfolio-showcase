@@ -2,16 +2,17 @@ name: Build & Deploy to Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out code
         uses: actions/checkout@v3
+        with:
+          # DON’T let the default GITHUB_TOKEN stay in the repo config
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -27,7 +28,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          # Use your PAT so it can push to an external repo
+          # now use your PAT to push to the external repo
           personal_token: ${{ secrets.PAGES_PAT }}
           external_repository: souvikr/souvikr.github.io
           publish_branch: main
