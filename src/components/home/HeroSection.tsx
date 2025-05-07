@@ -18,20 +18,23 @@ const HeroSection = () => {
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary-900 dark:text-white">
-            I'm Souvik Roy, Your Personal AI Trainer
+            Learn AI with me
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-10">
             I help brands & teams unlock AI for real results
           </p>
           
-          <Button 
-            onClick={scrollToWork}
-            className="btn-primary text-lg group flex items-center gap-2"
-          >
-            See My Work
-            <ArrowDown className="h-4 w-4 group-hover:animate-bounce" />
-          </Button>
+          <div className="flex justify-center">
+            <Button 
+              onClick={scrollToWork}
+              className="btn-primary text-lg group flex items-center gap-2"
+              size="lg"
+            >
+              See My Work
+              <ArrowDown className="h-4 w-4 group-hover:animate-bounce" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>

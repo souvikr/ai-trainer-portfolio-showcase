@@ -7,12 +7,9 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/sonner";
 import { 
   MapPin, 
-  Mail, 
-  Phone, 
+  Mail,
   Linkedin, 
-  Twitter, 
-  Github,
-  Loader2
+  Github
 } from "lucide-react";
 
 const Contact = () => {
@@ -23,8 +20,6 @@ const Contact = () => {
     message: ""
   });
   
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -32,22 +27,16 @@ const Contact = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
-      toast.success("Message sent successfully! I'll get back to you soon.");
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-      });
-      setIsSubmitting(false);
-    }, 1500);
+    // Create mailto link with form data
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
     
-    // In a real implementation, this would send data to a server or email service
+    window.location.href = `mailto:souvikroy5@gmail.com?subject=${subject}&body=${body}`;
+    
+    toast.success("Opening your email client...");
   };
 
   return (
@@ -74,7 +63,7 @@ const Contact = () => {
                     <MapPin className="h-5 w-5 text-primary mt-1 mr-3" />
                     <div>
                       <p className="text-gray-800 dark:text-gray-200 font-medium">Location</p>
-                      <p className="text-gray-600 dark:text-gray-400">San Francisco, CA</p>
+                      <p className="text-gray-600 dark:text-gray-400">Kolkata, India</p>
                     </div>
                   </div>
                   
@@ -82,17 +71,9 @@ const Contact = () => {
                     <Mail className="h-5 w-5 text-primary mt-1 mr-3" />
                     <div>
                       <p className="text-gray-800 dark:text-gray-200 font-medium">Email</p>
-                      <a href="mailto:hello@souvikroy.ai" className="text-primary hover:underline">
-                        hello@souvikroy.ai
+                      <a href="mailto:souvikroy5@gmail.com" className="text-primary hover:underline">
+                        souvikroy5@gmail.com
                       </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <Phone className="h-5 w-5 text-primary mt-1 mr-3" />
-                    <div>
-                      <p className="text-gray-800 dark:text-gray-200 font-medium">Phone</p>
-                      <p className="text-gray-600 dark:text-gray-400">(123) 456-7890</p>
                     </div>
                   </div>
                 </div>
@@ -104,7 +85,7 @@ const Contact = () => {
                   
                   <div className="flex space-x-4">
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/souvikroy5/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors"
@@ -113,16 +94,7 @@ const Contact = () => {
                       <Linkedin className="h-5 w-5" />
                     </a>
                     <a
-                      href="https://twitter.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors"
-                      aria-label="Twitter"
-                    >
-                      <Twitter className="h-5 w-5" />
-                    </a>
-                    <a
-                      href="https://github.com"
+                      href="https://github.com/souvikr"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-gray-100 dark:bg-gray-700 p-3 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors"
@@ -175,6 +147,7 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="John Doe"
                         required
+                        className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                       />
                     </div>
                     
@@ -188,6 +161,7 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="john@example.com"
                         required
+                        className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                       />
                     </div>
                   </div>
@@ -201,6 +175,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="How can I help you?"
                       required
+                      className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     />
                   </div>
                   
@@ -214,20 +189,15 @@ const Contact = () => {
                       placeholder="Tell me about your project or inquiry..."
                       rows={6}
                       required
+                      className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                     />
                   </div>
                   
                   <Button 
                     type="submit" 
-                    disabled={isSubmitting}
                     className="w-full md:w-auto bg-primary hover:bg-primary-700 text-white"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Sending...
-                      </>
-                    ) : "Send Message"}
+                    Send Message
                   </Button>
                 </form>
               </div>

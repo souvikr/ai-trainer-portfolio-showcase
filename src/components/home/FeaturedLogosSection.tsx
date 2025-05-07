@@ -24,7 +24,7 @@ const FeaturedLogosSection = () => {
     <section className="py-16">
       <div className="container-custom">
         <h2 className="text-2xl font-semibold text-center text-gray-800 dark:text-gray-200 mb-10">
-          Featured In
+          Brands
         </h2>
         
         <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
@@ -38,11 +38,13 @@ const FeaturedLogosSection = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <img 
-                src={logo.image} 
-                alt={logo.name} 
-                className="h-16 md:h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity filter dark:invert-[0.85]" 
-              />
+              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center p-4 shadow-sm hover:shadow-md transition-shadow">
+                <img 
+                  src={logo.image} 
+                  alt={logo.name} 
+                  className="max-h-16 md:max-h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity filter dark:invert-[0.85]" 
+                />
+              </div>
             </motion.a>
           ))}
         </div>

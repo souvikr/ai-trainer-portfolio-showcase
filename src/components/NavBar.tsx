@@ -44,8 +44,7 @@ const NavBar = () => {
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white dark:bg-gray-900 shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container-custom flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <span className="text-xl font-bold text-primary dark:text-white">SR</span>
-          <span className="ml-2 text-lg font-medium hidden sm:inline text-primary-800 dark:text-white">Souvik Roy</span>
+          <span className="text-lg font-medium text-primary-800 dark:text-white">Souvik Roy</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -65,6 +64,7 @@ const NavBar = () => {
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="Toggle theme"
+            className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
           >
             {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
@@ -77,6 +77,7 @@ const NavBar = () => {
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="Toggle theme"
+            className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
           >
             {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
@@ -86,6 +87,7 @@ const NavBar = () => {
             size="icon"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
