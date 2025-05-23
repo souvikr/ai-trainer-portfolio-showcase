@@ -42,7 +42,7 @@ const NavBar = () => {
   
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white dark:bg-gray-900 shadow-md py-2' : 'bg-transparent py-4'}`}>
-      <div className="container-custom flex justify-between items-center">
+      <div className="container-custom flex justify-between items-center px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center">
           <span className="text-lg font-medium text-primary-800 dark:text-white">Souvik Roy</span>
         </Link>
@@ -95,7 +95,7 @@ const NavBar = () => {
         
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg py-4 px-6 flex flex-col space-y-4 animate-fade-in">
+          <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg py-4 px-4 sm:px-6 lg:px-8 flex flex-col space-y-4 animate-fade-in">
             {navLinks.map((link) => (
               <Link 
                 key={link.name}

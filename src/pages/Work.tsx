@@ -48,11 +48,11 @@ const Work = () => {
 
   return (
     <>
-      <section className="pt-20 pb-10">
+      <section className="py-12">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Current Work</h1>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Current Work</h1>
+            <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300">
               I partner with forward-thinking organizations to implement effective AI strategies
             </p>
           </div>
